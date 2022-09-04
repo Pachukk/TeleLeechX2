@@ -193,7 +193,6 @@ async def imdb_callback(bot, quer_y: CallbackQuery):
     splitData = quer_y.data.split('#')
     movie, from_user = splitData[1], splitData[2]
     imdb = await get_poster(query=movie, id=True)
-    btn = [[InlineKeyboardButton(text="⚡ 𝘊𝘭𝘪𝘤𝘬 𝘏𝘦𝘳𝘦 ⚡", url=imdb['url'])]]
     message = quer_y.message.reply_to_message or quer_y.message
     template = IMDB_TEMPLATE.get(int(from_user), "")
     if not template:
